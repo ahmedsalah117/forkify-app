@@ -22,7 +22,7 @@ export default class View {
     // if (!data || (Array.isArray(data) && data.length === 0)) {
     //   return this.renderError();
     // }
-    console.log('update called');
+
     this._data = data;
     const newMarkUp = this._generateMarkup();
     //converting the new markup to html elements.
@@ -34,7 +34,6 @@ export default class View {
 
     // The Actual DOM
     const curDOMelements = Array.from(this._parentEl.querySelectorAll('*'));
-    // console.log(curDOMelements);
 
     newDOMelements.forEach((newEle, i) => {
       const curElement = curDOMelements[i];

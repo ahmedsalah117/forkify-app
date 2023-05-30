@@ -17,7 +17,6 @@ import * as model from './model.js';
 const controlRecipe = async function () {
   try {
     // window.location is an object that has very important properties and methods about the url
-    // console.log(window.location);
 
     const id = window.location.hash.slice(1);
 
@@ -36,7 +35,6 @@ const controlRecipe = async function () {
     // bookmarksView.update(model.state.bookmarks);
   } catch (err) {
     recipeView.renderError();
-    console.log(err);
   }
 };
 
@@ -48,12 +46,12 @@ async function controlSearch() {
     if (!query) return;
 
     await model.loadSearchResults(query);
-    // console.log(model.state.search.results);
+
     // resultsView.render(model.state.search.results);
     resultsView.render(model.getSearchResultsPerPage());
     paginationView.render(model.state.search);
   } catch (error) {
-    console.log(error);
+    searchView.renderError();
   }
 }
 
@@ -85,8 +83,6 @@ function controlAddBookMark() {
 
 function controlBookMarks() {
   // model.restoreBookMarks(); // restore from localStorage;
-  // console.log('bookmarks array from controller');
-  // console.log(model.state.bookmarks);
   bookmarksView.render(model.state.bookmarks);
 }
 

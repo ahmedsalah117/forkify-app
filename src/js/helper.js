@@ -37,7 +37,6 @@ export async function AJAX(url, uploadData = undefined) {
       return recipes;
     }
   } catch (error) {
-    console.log(error);
     throw error;
   }
 }
